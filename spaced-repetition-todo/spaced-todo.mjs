@@ -6,6 +6,7 @@ import yargs from 'yargs'
 import fs from 'fs'
 import chalk from 'chalk'
 import { info } from 'console'
+import { program } from 'commander'
 
 // const {argv} = yargs(process.argv) 
 // const res = await fetch('https://reddit.com/.json')
@@ -28,23 +29,36 @@ const file_exists = fs.existsSync(file_name)
 if( file_exists === false){
     fs.writeFileSync(file_name,"")
 }
-const sleep = (ms = 2000)=> new Promise((r)=> setTimeout(r,ms))
-const infoFunction = async ()=>{
+//const sleep = (ms = 2000)=> new Promise((r)=> setTimeout(r,ms))
+const infoFunction = async()=>{
     const text = `
     ${chalk.yellow('Commands :-')} 
     ${chalk.bgGreen('todo')} add task1     # It will add task1 in todo list
-    ${chalk.bgGreen('todo')} ls            # It will show all tasks
+    ${chalk.bgGreen('todo')} list          # It will show all tasks
     ${chalk.bgGreen('todo')} done NUMBER   # Complete a todo
-    ${chalk.bgGreen('todo')} spaced NUMBER # That task will be remined in a spaced repetition
-                         manner 
+    ${chalk.bgGreen('todo')} spaced NUMBER # That task will be remined in a spaced repetion manner 
     `
     console.log(text)
     //await sleep()
 }
+program
+    .name('todo in spaced repetition manner')
+    .description("CLI for todo tasks")
+    .version('0.0.1')
+program
+    .command('info')
+    .description('Print all available commands')
+    .action(infoFunction())
+program.parse()
 
-const num = 10
-const warning = chalk.red()
-infoFunction()
+
+const addTask = async()=>{
+
+}
+//const num = 10
+//const warning = chalk.red()
+//infoFunction()
+
 console.log(`
 
 RAM: ${chalk.green('40%')}
