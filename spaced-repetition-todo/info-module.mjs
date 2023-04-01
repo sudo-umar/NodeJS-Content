@@ -10,10 +10,10 @@ export const infoFunction = async()=>{
 }));
     const text = `
     ${chalk.yellow('Commands :-')} 
-    ${chalk.bgGreen('todo')} add task1     # It will add task1 in todo list
-    ${chalk.bgGreen('todo')} list          # It will show all tasks
-    ${chalk.bgGreen('todo')} done NUMBER   # Complete a todo
-    ${chalk.bgGreen('todo')} spaced NUMBER # That task will be remined in a spaced repetion manner 
+    ${chalk.bgGreen('todo')} --add task1     # It will add task1 in todo list
+    ${chalk.bgGreen('todo')} --list          # It will show all tasks
+    ${chalk.bgGreen('todo')} --done NUMBER   # Complete a todo
+    ${chalk.bgGreen('todo')} --repeat NUMBER # That task will be remined in a spaced repetion manner 
     `
     console.log(text)
     //await sleep()
