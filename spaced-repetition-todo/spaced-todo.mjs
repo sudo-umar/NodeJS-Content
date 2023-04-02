@@ -28,20 +28,16 @@ program
   .parse(process.argv);
 
 const options = program.opts();
-console.log(Object.keys(options).length)
+//console.log(Object.keys(options).length)
 if (Object.keys(options).length === 0 || options.info) {
   infoFunction();
-}
-if (options.ls) {
-  console.log(options);
 }
 if (options.add){
   addFunction(options.add, file_name)
 }
-
 if (options.ls){
-  readTasks(0, file_name)
+  readTasks(file_name)
 }
 if(options.done){
-  deleteTasks(0, file_name)
+  deleteTasks(options.done, file_name)
 }

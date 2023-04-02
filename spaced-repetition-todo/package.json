@@ -20,6 +20,6 @@
   },
   "description": "",
   "devDependencies": {
-    "prettier": "2.8.7"
+    "prettier": "^2.8.7"
   }
 }
