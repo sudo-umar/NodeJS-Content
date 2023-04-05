@@ -8,7 +8,8 @@ import { program } from "commander";
 import { infoFunction } from "./info-module.mjs";
 import { addFunction, deleteTasks, readTasks } from "./add-module.mjs"
 
-const file_name = process.cwd() + "/todo.txt";
+//const file_name = process.cwd() + "/todo.txt";
+const file_name = new URL("todo.txt", import.meta.url)
 const file_exists = fs.existsSync(file_name);
 if (file_exists === false) {
   fs.writeFileSync(file_name, "");
@@ -39,5 +40,6 @@ if (options.ls){
   readTasks(file_name)
 }
 if(options.done){
+  console.log(options.done)
   deleteTasks(options.done, file_name)
 }

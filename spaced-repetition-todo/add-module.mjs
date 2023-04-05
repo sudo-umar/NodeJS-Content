@@ -20,11 +20,16 @@ export const readTasks = async(file_path)=>{
 }
 
 export const deleteTasks = async(task, file_path) => {
+
     const fileContents = fs.readFileSync(file_path, 'utf8')
-    const lines = fileContents.split('\r\n')
+    const lines = fileContents.split('\n')
+    console.log("lines")
+    console.log(lines)
     const updatedLines = lines.filter((word)=> !word.startsWith(task)) // removing line that starts with the task name
     // Join the updated lines.
+    console.log(updatedLines)
     const updatedContent = updatedLines.join('\n')
+    
     // Writing the updated content to the file in sync mode.
     fs.writeFileSync(file_path, updatedContent, 'utf-8')
     
